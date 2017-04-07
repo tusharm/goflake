@@ -1,21 +1,24 @@
 package goflake
 
-import (
-	"net"
-	"time"
-)
+import "time"
 
-// Dialer can be used to dial connections to MySQL. If Dialer returns (nil, nil)
-// the hook is skipped and normal dialing proceeds. user and dbname are there
-// only for logging.
-type Dialer func(proto, laddr, raddr, user, dbname string, timeout time.Duration) (net.Conn, error)
+// Configuration is a per connection thing
+type Configuration struct {
+	Dsn      string
+	User     string
+	Password string
+	Host     string
+	Port     int
+	Database string
 
-// Driver implements database/sql/driver interface.
-type Driver struct {
-	// Defaults
-	proto, laddr, raddr, user, passwd, db string
-	timeout                               time.Duration
-	dialer                                Dialer
+	Protocol  string
+	Warehouse string
+	Region    string
+	Account   string
+	Schema    string
+	Role      string
 
-	initCmds []string
+	Timeout time.Time
+
+	Autocommit bool
 }

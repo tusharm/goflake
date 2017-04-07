@@ -1,5 +1,7 @@
 # goflake - Snowflake Connector for Go
 
+**Note: This is early days and provides no functionality other than basic testing at this time**
+
 This package provides the Snowflake Connector for Go
 
 The Snowflake Connector for Go provides an interface for developing Go applications that can connect to Snowflake and perform all standard operations. It provides a programming alternative to developing applications in Java or C/C++ using the Snowflake JDBC or ODBC drivers.
