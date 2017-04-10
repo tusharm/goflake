@@ -2,12 +2,25 @@ package goflake
 
 import (
 	"context"
+	"database/sql/driver"
+	"errors"
 	"net/http"
 	"net/http/cookiejar"
 	"strings"
 
 	"golang.org/x/net/publicsuffix"
 )
+
+type RestConnection struct {
+}
+
+func (rc *RestConnection) Begin() (driver.Tx, error) {
+	return nil, nil
+}
+
+func (rc *RestConnection) Close() error {
+	return errors.New("Not Implemented")
+}
 
 const (
 	RequestsRetry            = 5        // requests retry
